@@ -132,7 +132,12 @@ button {
     margin-left: 2%;
 }
 
-.frgt-pass {background: transparent;}
+.frgt-pass {
+    background: transparent;
+    width: 240px;
+    height: 50px;
+    margin-left:10%
+}
 
 .sign-up {background: #B8F2E6;}
 
