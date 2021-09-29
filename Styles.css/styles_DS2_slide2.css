@@ -1,0 +1,202 @@
+body{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background:#EEE6E6;
+    font-family: 'Montserrat', sans-serif;   
+      
+}
+
+header{
+    background: #CD8B59;
+    height: 30%;
+}
+
+.logo{          /*no toma cambio tamaño*/
+     
+    
+}
+
+.t_header{
+    text-align: right;    
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;    
+    margin-right: 40px;    
+    margin-top: -180px;
+    color: black;
+}
+
+.v_menu {
+    width: 270px; 
+    background-color: #795243; 
+    font-style: 'Montserrat', sans-serif; 
+    font-size: 25px;
+    margin-top: 0px;
+    padding: 0px;  
+    
+}
+  
+.v_menu a {
+    color: rgb(231, 221, 221); 
+    font-weight: bold;   /*negrita*/
+    display: block; 
+    padding: 4px; 
+    text-decoration: none; 
+    border:rgb(88, 76, 76) 2px solid;    
+    padding: 10px;  
+    padding-top: 20px;
+    padding-block-end: 20px;
+    
+}
+
+.v_menu a:hover {
+    background-color: rgb(184, 177, 177); 
+}
+
+.v_menu a.active {
+    background-color: #795243; 
+    color: rgb(231, 221, 221);
+}
+
+.v_menu a.active:hover{
+    background-color: rgb(184, 177, 177); 
+}
+
+.t_nueRegistro{
+    font-family: 'Montserrat';
+    font-size: 50px;
+    text-align: left;
+    margin-top: -300px;  
+    margin-left: 400px;
+}
+
+.form_actualizar{
+    margin-left: 500px;  
+    margin-top: 100px; 
+    width: 40%;
+    padding: 50px;
+    background: #D0AC7A;
+}
+
+.id_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center;
+    
+}
+
+.id_user_label{
+    text-align: left;
+    font-size: 25px;
+    margin-left: 150px;
+    width: 250px;
+    height: 40px;    
+}
+
+.doc_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center;
+}
+
+.doc_user_label{
+    margin-top: 50px;
+    text-align: left;
+    font-size: 25px;
+    width: 250px;
+    height: 40px;
+}
+
+.name_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center;
+}
+
+.name_user_label{
+    margin-left: 240px;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 25px;
+    width: 250px;
+    height: 40px;
+}
+
+.last_name_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center;
+}
+
+.last_name_user_label{
+    margin-left: 240px;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 25px;
+    width: 250px;
+    height: 40px;
+}
+
+.email_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center;
+}
+
+.email_user_label{
+    margin-left: 100px;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 25px;
+    width: 250px;
+    height: 40px;
+}
+
+.rol_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center
+}
+
+.rol_user_label{
+    margin-left: 330px;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 25px;
+    width: 250px;
+    height: 40px;
+}
+
+.estado_user{
+    font-family: 'Montserrat';
+    font-size: 30px;
+    text-align: center
+}
+
+.estado_user_label{
+    margin-left: 280px;
+    margin-top: 50px;
+    text-align: left;
+    font-size: 25px;
+    width: 250px;
+    height: 40px;
+}
+
+.boton_guardar_regis{
+    margin-top: 60px;
+    margin-left: 350px;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    background-color: #C06431;
+    font-family: 'Montserrat';   
+    cursor: pointer;
+}
+
+footer{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 80px;
+}
