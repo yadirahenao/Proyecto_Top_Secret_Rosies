@@ -7,9 +7,7 @@ function App() {
     <div className='App'>
       <Router>        
           <Switch>
-            <Route path='/inicio'>
-              <MenuInicio/>
-            </Route>
+
             <Route path='/'>
               <Index />
             </Route>
