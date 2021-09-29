@@ -23,7 +23,7 @@ function Navbar() {
                   <AiIcons.AiOutlineClose />
                 </Link>
               </li>
-              {SidebarData.map((item, index) => {
+              {SidebarData.map((item, index) => {  //Used the map function to create sidebar elements using the data in SideMenuData.js
                 return (
                   <li key={index} className={item.cName}>
                     <Link to={item.path}>
