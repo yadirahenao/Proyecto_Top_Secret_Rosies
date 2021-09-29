@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css'
 import 'Navbar/Navbar'
 import Navbar from 'Navbar/Navbar';
+import 'styles/Navbar.css'
 
 function App() {
   return (
