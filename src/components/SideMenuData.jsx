@@ -2,6 +2,7 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import * as GiIcons from "react-icons/gi";
 
 export const SidebarData = [
   {
@@ -14,21 +15,21 @@ export const SidebarData = [
   {
     title: 'Ventas',
     path: '/ventas',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <IoIcons.IoIosCart />,
     cName: 'nav-text'
   },
 
   {
     title: 'Productos',
     path: '/productos',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <GiIcons.GiSoap/>,
     cName: 'nav-text'
   },
 
   {
     title: 'Configuración',
     path: '/configuracion',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <FaIcons.FaCogs />,
     cName: 'nav-text'
   },
 ];
