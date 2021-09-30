@@ -7,28 +7,28 @@ import * as GiIcons from "react-icons/gi";
 export const SidebarData = [
   {
     title: 'Inicio',
-    path: '/',
+    path: '/home',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
 
   {
     title: 'Ventas',
-    path: '/ventas',
+    path: '/sales',
     icon: <IoIcons.IoIosCart />,
     cName: 'nav-text'
   },
 
   {
     title: 'Productos',
-    path: '/productos',
+    path: '/products',
     icon: <GiIcons.GiSoap/>,
     cName: 'nav-text'
   },
 
   {
     title: 'Configuración',
-    path: '/configuracion',
+    path: '/configuration',
     icon: <FaIcons.FaCogs />,
     cName: 'nav-text'
   },
