@@ -52,14 +52,9 @@ function Products() {
       </div>
 
     </div><div class="pen-footer">
-        <a href="https://www.google.com" target="_blank"><i class="material-icons">arrow_backward</i>Regresar</a>
+        <a href="https://www.google.com" target="_blank"><i class="material-icons"></i>Regresar</a>
 
       </div></>
-
-    
-    
-
-
   );
 }
 
