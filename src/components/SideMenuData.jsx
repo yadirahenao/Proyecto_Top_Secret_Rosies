@@ -32,4 +32,6 @@ export const SidebarData = [
     icon: <FaIcons.FaCogs />,
     cName: 'nav-text'
   },
+  
 ];
+

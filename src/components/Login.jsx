@@ -5,8 +5,8 @@ function Login() {
     <div className="overlay">
     <form>
       <div className="con">
-        <header className="head-form">
-          <h2>Bienvenido</h2>
+        <header className="form-header">
+          <h1>Bienvenido</h1>
           <br></br>
           <p>Ingrese su usuario y contraseña</p>
         </header>
@@ -19,11 +19,8 @@ function Login() {
         </Link>          
       </div>
       </div>
-    </form>
-    
+    </form>    
   </div> 
-
-
   );
 }
 
