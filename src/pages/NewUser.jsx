@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function NewSales() {
+function NewUser() {
   return (
     <><div className="form">
       <div className="form-toggle"></div>
       <div lass="form-panel one">
         <div className="form-header">
-          <h1>Nueva Venta</h1>
+          <h1>Nuevo Usuario</h1>
           <br></br>
-          <h3>Ingrese los datos para crear una nueva venta</h3>
+          <h3>Ingrese los datos para crear un nuevo usuario</h3>
         </div>
         <div className="form-content">
           <form>
@@ -47,7 +47,7 @@ function NewSales() {
               <button type="submit">Guardar información</button>
             </div>
 
-            <Link to='/Sales'>
+            <Link to='/Configuration'>
               <p>Regresar</p>
             </Link>
 
@@ -60,4 +60,4 @@ function NewSales() {
   );
 }
 
-export default NewSales;
+export default NewUser;

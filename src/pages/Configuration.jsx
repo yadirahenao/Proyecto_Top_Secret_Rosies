@@ -46,7 +46,7 @@ function Configuration() {
             <td></td>
         </tr>
         </table>
-        <Link to='/NewProducts'>
+        <Link to='/NewUser'>
           <p>Agregar usuario</p>
         </Link>
         

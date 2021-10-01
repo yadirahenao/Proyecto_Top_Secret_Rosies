@@ -16,6 +16,7 @@ import NewSales from 'pages/NewSale';
 import NewProducts from 'pages/NewProducts';
 import Products from 'pages/Products';
 import Configuration from 'pages/Configuration';
+import NewUser from 'pages/NewUser';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
           <Route path='/NewSales'><Navbar/><NewSales/> </Route>
           <Route path='/Products'><Navbar/><Products/></Route>
           <Route path='/NewProducts'><Navbar/><NewProducts/></Route>
-          <Route path='/Configuration'> <Navbar/><Configuration/></Route>            
+          <Route path='/Configuration'> <Navbar/><Configuration/></Route>   
+          <Route path='/NewUser'> <Navbar/><NewUser/></Route>          
           <Route path='/'> <Index /> </Route>     
         </Switch>        
       </Router>
