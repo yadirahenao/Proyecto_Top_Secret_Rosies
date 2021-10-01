@@ -1,0 +1,19 @@
+/* Start form  attributes - LOGIN */
+form {
+
+    min-height: 500px;
+    height: auto;    
+    width: 400px;
+    z-index: 15;
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin: 100px auto 10px;
+    padding: 2%;
+    overflow: hidden;    
+}
+
+
+
