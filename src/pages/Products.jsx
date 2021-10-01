@@ -3,58 +3,47 @@ import { Link } from 'react-router-dom';
 
 function Products() {
   return (
-    <><div class="form">
-      <div class="form-toggle"></div>
-      <div lass="form-panel one">
-        <div class="form-header">
-          <h1>Crear producto</h1>
-          <br></br>
-          <h3>Ingrese los datos para crear un nuevo producto</h3>
-        </div>
-        <div class="form-content">
-          <form>
-            <div class="form-group">
-              <label for="ID">ID</label>
-              <input type="text" id="ID" name="ID" required="required" />
-            </div>
-
-            <div class="form-group">
-              <label for="Descrpcion">Descrpción</label>
-              <input type="Descrpcion" id="Descrpcion" name="Descrpcion" required="required" />
-            </div>
-
-            <div class="form-group">
-              <label for="Precio">Precio</label>
-              <input type="Precio" id="Precio" name="Precio" required="required" />
-            </div>
-
-            <div class="form-group">
-              <label for="Estado">ESTADO</label>
-            </div>
-
-            <div class="product-status">
-              <select name="Estado">
-                <option selected value="0">Elige una opción</option>
-                <option value="1">Disponible</option>
-                <option value="1">No Disponible</option>
-                <option value="1">Oculto</option>
-              </select>
-            </div>
-
-            <br></br>
-
-            <div class="form-group">
-              <button type="submit">Guardar información</button>
-            </div>
-
-          </form>
-        </div>
+    <div className='ventas'>
+      <h2 className="t_consultar">PRODUCTOS</h2>
+      <div className="busuqeda">
+        <span className="id_user_label">ID producto</span>
+        <input className="ide_user" type="text" name="user"></input>
+        <button className="boton_buscar">Buscar</button>
       </div>
 
-    </div><div class="pen-footer">
-        <a href="https://www.google.com" target="_blank"><i class="material-icons"></i>Regresar</a>
+      <div className="table_users">
+      <table>
+            <thead>
+                <th>ID producto</th>
+                <th>Descripción</th>
+                <th>Valor unitario</th>
+                <th>Estado</th>
 
-      </div></>
+            </thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+        </tr>
+        </table>
+        <Link to='/NewProducts'>
+          <p>Agregar Nuevo producto</p>
+        </Link>
+       
+
+      </div>
+    </div>
   );
 }
 

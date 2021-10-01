@@ -14,7 +14,7 @@ function Login() {
       
       <div className="field-set">        
         <br></br>    
-        <Link to='/menu'>
+        <Link to='/Home'>
           <p>Ingresar</p>        
         </Link>          
       </div>
