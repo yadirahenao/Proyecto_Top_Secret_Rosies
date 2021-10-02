@@ -47,6 +47,10 @@ form {
     background: #ddbb99;
 }
 
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
 .L_Ingresar{    
     text-align: center;
     margin-left:31%;
@@ -63,6 +67,8 @@ form {
     color: white;         
     cursor: pointer;
     text-decoration: none;  
+    display: inline-block;
+    
 }
 
 .Footer{

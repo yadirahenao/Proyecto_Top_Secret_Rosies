@@ -22,7 +22,7 @@ function Login() {
       <img className = 'logo-google' src={Logo}></img>
           <br></br>
           <div className ="L_Ingresar">
-          <Link to='/Home'>
+          <Link  to='/Home'>
             <p>Iniciar sesion con google</p>
           </Link>   
           </div>              
