@@ -15,7 +15,7 @@ function Login() {
       <div className="field-set">        
         <br></br>    
         <Link to='/Home'>
-          <p>Ingresar</p>        
+          <p className='L_Ingresar'>Ingresar</p>        
         </Link>          
       </div>
       </div>

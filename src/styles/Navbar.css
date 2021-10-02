@@ -4,19 +4,19 @@
 
 .navbar {
     background-color: #6f2b25;
-    height: 85px;
+    height: 150px;
     display: flex;
     justify-content: start;
     align-items: center;
   }
   
-  .menu-bars {
+  .menu-bars {        /*barras menú*/
     margin-left: 2rem;
     font-size: 2rem;
     background: none;
   }
   
-  .nav-menu {
+  .nav-menu {     /*menu desplegable*/
     background-color: #6f2b25;
     width: 250px;
     height: 100vh;

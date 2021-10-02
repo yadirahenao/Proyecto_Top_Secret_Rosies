@@ -1,15 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from 'components/Footer';
 
 function Configuration() {
   return (
     <div className='users'>
-      <h1 className="t_consultar">Consultar usuario</h1>
-      <div className="busuqeda">
-        <span className="id_user_label">Código usuario</span>
-        <input className="ide_user" type="text" name="user"></input>
+      <h1 className="t_modulo">Gestión de usuarios</h1>       
+      <div className="busqueda">      
+        <select className="Opc_filtro">
+          <option value="1">(Filtrar por)</option> 
+            <option value="2">Id usuario</option> 
+            <option value="3">Nombre cliente</option> 
+            <option value="4">Apellido cliente</option>
+            <option value="5">Rol</option>
+            <option value="6">Estado</option>
+        </select>
+
+        <input className="id_user" type="text" name="user"></input>
         <button className="boton_buscar">Buscar</button>
-      </div>
+        <Link to='/NewUser'>
+          <p className='L_Nuevo'>Nuevo usuario</p>
+        </Link> 
+        </div>
 
       <div className="table_users">
       <table>
@@ -46,14 +58,12 @@ function Configuration() {
             <td></td>
         </tr>
         </table>
-        <Link to='/NewUser'>
-          <p>Agregar usuario</p>
+        <Link >
+          <p className='L_Actualizar'>Actualizar</p>
         </Link>
         
-       
-
       </div>
-
+      <Footer/>
     </div>
   );
 }

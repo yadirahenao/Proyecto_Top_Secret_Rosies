@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from 'components/Footer'
 
 function NewSales() {
   return (
-    <><div className="form">
+    <>
+    <div>
+      <h1 className='t_modulo'> Gestión de ventas</h1>
+    </div>
+    <div className="form">
       <div className="form-toggle"></div>
       <div lass="form-panel one">
         <div className="form-header">
-          <h1>Nueva Venta</h1>
+          <h2>Nueva Venta</h2>
           <br></br>
           <h3>Ingrese los datos para crear una nueva venta</h3>
         </div>
@@ -29,7 +34,7 @@ function NewSales() {
             </div>
 
             <div className="form-group">
-              <label for="Estado">ESTADO</label>
+              <label for="Estado">Estado</label>
             </div>
 
             <div className="product-status">
@@ -48,14 +53,14 @@ function NewSales() {
             </div>
 
             <Link to='/Sales'>
-              <p>Regresar</p>
+              <p className='L_Regresar'>Regresar</p>
             </Link>
 
           </form>
         </div>
-      </div>
-
+      </div>      
     </div>
+    <Footer/>
     </>
   );
 }

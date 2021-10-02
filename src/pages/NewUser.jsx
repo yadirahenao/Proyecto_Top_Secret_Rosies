@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 
 function NewUser() {
   return (
-    <><div className="form">
+    <>
+    <div>
+      <h1 className='t_modulo'> Gestión de usuarios</h1>
+    </div>
+    <div className="form">
       <div className="form-toggle"></div>
       <div lass="form-panel one">
         <div className="form-header">
-          <h1>Nuevo Usuario</h1>
+          <h2>Nuevo Usuario</h2>
           <br></br>
           <h3>Ingrese los datos para crear un nuevo usuario</h3>
         </div>
@@ -29,7 +33,7 @@ function NewUser() {
             </div>
 
             <div className="form-group">
-              <label for="Estado">ESTADO</label>
+              <label for="Estado">Estado</label>
             </div>
 
             <div className="product-status">
@@ -48,7 +52,7 @@ function NewUser() {
             </div>
 
             <Link to='/Configuration'>
-              <p>Regresar</p>
+              <p className='L_Regresar'>Regresar</p>
             </Link>
 
           </form>

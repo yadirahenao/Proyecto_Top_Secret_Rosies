@@ -15,5 +15,31 @@ form {
     overflow: hidden;    
 }
 
+.Pant_inicial{
+    background: #ddbb99;
+}
 
 
+.L_Ingresar{
+    margin-top: 80%;    
+    margin-left: 35%;
+    padding: 8px 15px;    
+    border: 1px solid rgb(190, 186, 186);  
+    border-radius: 4px;
+    width: 120px;
+    height:35px ;
+    font-size: inherit;
+    font-family: 'Montserrat';
+    text-align: center;
+    background-color: #C06431;   
+    color: white;         
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.Footer{
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    
+}

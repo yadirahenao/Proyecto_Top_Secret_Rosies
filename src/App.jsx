@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'styles/styles.css'
 import 'styles/Navbar.css'
 import 'styles/Login.css'
-import 'styles/NewProducts.css'
-import 'styles/Users.css'
+import 'styles/Int_Secund.css'
+import 'styles/Int_modulos.css'
 import 'App.css'
 
 import Navbar from 'Navbar/Navbar';
