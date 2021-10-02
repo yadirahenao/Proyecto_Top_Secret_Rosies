@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import * as FcIcons from 'react-icons/fc'
 import { Link } from 'react-router-dom';
 import {SidebarData} from 'components/SideMenuData'
+import Logo from 'media/logo-b.png';
 
 function Navbar() {
     const [sidebar, setSidebar] = useState(false);  
@@ -23,6 +22,8 @@ function Navbar() {
                   <FcIcons.FcMenu/>
                 </Link>
               </li>
+              <img className = 'logo-b' src={Logo}></img>
+              <br></br>
               {SidebarData.map((item, index) => {  //Used the map function to create sidebar elements using the data in SideMenuData.js
                 return (
                   <li key={index} className={item.cName}>
