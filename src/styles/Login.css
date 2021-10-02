@@ -49,13 +49,14 @@ form {
 
 a:link, a:visited, a:active {
     text-decoration:none;
+    color: white;
 }
 
 .L_Ingresar{    
     text-align: center;
     margin-left:31%;
     padding: 2%;  
-    background-color: #e4e0e0;
+    background-color: #ca7062;
     border: 1px solid rgb(190, 186, 186);  
     border-radius: 10px;
     width: 200px;
@@ -63,12 +64,8 @@ a:link, a:visited, a:active {
     font-size: inherit;
     font-family: 'Montserrat';
     margin-top: 8%;    
-    margin-left: 25%;
-    color: white;         
-    cursor: pointer;
-    text-decoration: none;  
-    display: inline-block;
-    
+    margin-left: 25%;   
+    cursor: pointer;    
 }
 
 .Footer{
