@@ -8,7 +8,7 @@ import 'styles/Int_Secund.css'
 import 'styles/Int_modulos.css'
 import 'App.css'
 
-import Navbar from 'Navbar/Navbar';
+import Navbar from 'components/Navbar';
 import Index from 'pages';
 import Home from 'pages/Home';
 import Sales from 'pages/Sales';

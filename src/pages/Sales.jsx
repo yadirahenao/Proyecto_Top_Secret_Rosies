@@ -4,7 +4,7 @@ import Footer from 'components/Footer';
 
 function Sales() {
   return (
-      <div>
+      <div className="mainContainer">
       <h2 className="t_modulo">Gestión de ventas</h2>
          
       <div className="busqueda">       
@@ -25,10 +25,13 @@ function Sales() {
       <div className="table_users">
       <table>
             <thead>
-                <th>ID venta</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Documento de identidad</th>
+                <th><strong>ID venta</strong></th>
+                <th><strong>Cliente</strong></th>
+                <th><strong>Documento de identidad</strong></th>
+                <th><strong>Producto</strong></th>
+                <th><strong>Cantidad</strong></th>
+                <th><strong>Vendedor</strong></th>
+                <th><strong>Valor Total</strong></th>
 
             </thead>
         <tr>
@@ -36,9 +39,15 @@ function Sales() {
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
 
         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
