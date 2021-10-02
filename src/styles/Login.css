@@ -1,8 +1,6 @@
 /* Start form  attributes - LOGIN */
 form {
-
-    min-height: 500px;
-    height: auto;    
+    min-height: 300px;
     width: 400px;
     z-index: 15;
     position: relative;
@@ -10,36 +8,65 @@ form {
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    margin: 100px auto 10px;
-    padding: 2%;
+    margin: 80px auto 10px;
+    padding: 0%;
     overflow: hidden;    
+}
+
+.form-header {
+    margin: 5% auto 10% auto;
+    text-align: center;
+   }
+   
+.form-header h1 { /*title create product - H1*/
+   padding: 4px 0;
+   margin: 20px;
+   color: #ca7062;
+   font-size: 50px;        
+}
+   
+.form-header h2 { /*title create product - H1*/
+    padding: 4px 0;
+    color: #ca7062;
+    font-size: 250%;
+    font-weight: 700;        
+}
+
+.logo-tsr{      
+    height: 200px;    
+    text-align: center;
+    margin: 20px;
+}
+
+.logo-google{
+    height: 50px;     
+    margin: 0% 44%;  
 }
 
 .Pant_inicial{
     background: #ddbb99;
 }
 
-
-.L_Ingresar{
-    margin-top: 80%;    
-    margin-left: 35%;
-    padding: 8px 15px;    
+.L_Ingresar{    
+    text-align: center;
+    margin-left:31%;
+    padding: 2%;  
+    background-color: #e4e0e0;
     border: 1px solid rgb(190, 186, 186);  
-    border-radius: 4px;
-    width: 120px;
+    border-radius: 10px;
+    width: 200px;
     height:35px ;
     font-size: inherit;
     font-family: 'Montserrat';
-    text-align: center;
-    background-color: #C06431;   
+    margin-top: 8%;    
+    margin-left: 25%;
     color: white;         
     cursor: pointer;
-    text-decoration: none; 
+    text-decoration: none;  
 }
 
 .Footer{
     text-align: center;
     font-weight: bold;
-    font-size: 10px;
-    
+    font-size: 10px;    
 }
