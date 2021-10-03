@@ -48,7 +48,9 @@ function NewUser() {
             <br></br>
 
             <div className="form-group">
-              <button type="submit">Guardar información</button>
+              <button type="submit" onClick={event => alert(event.target.id)}>
+              <p  id="Usuario Creado Exitosamente">Guardar información</p>
+              </button>
             </div>
 
             <Link to='/Configuration'>
