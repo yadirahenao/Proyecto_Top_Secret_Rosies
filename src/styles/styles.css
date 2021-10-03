@@ -73,6 +73,7 @@ body {
     margin-left: 20%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
 }
 
 .catalogo{              /*il*/
@@ -80,6 +81,7 @@ body {
     background-color:#6f2b25;
     box-shadow: 5px 10px 5px rgb(231, 231, 231);
     border-radius: 10px;
+    list-style: none;
 }
 
 .tituloImagen{
