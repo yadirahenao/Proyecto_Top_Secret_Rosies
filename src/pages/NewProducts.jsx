@@ -24,17 +24,17 @@ function NewProducts() {
             </div>
 
             <div className="form-group">
-              <label for="Descrpcion">Descrpción</label>
+              <label for="Descrpcion">DESCRIPCIÓN</label>
               <input type="Descrpcion" id="Descrpcion" name="Descrpcion" required="required" />
             </div>
 
             <div className="form-group">
-              <label for="Precio">Precio</label>
+              <label for="Precio">VALOR UNITARIO</label>
               <input type="Precio" id="Precio" name="Precio" required="required" />
             </div>
 
             <div className="form-group">
-              <label for="Estado">Estado</label>
+              <label for="Estado">ESTADO</label>
             </div>
 
             <div className="product-status">
@@ -42,7 +42,6 @@ function NewProducts() {
                 <option selected value="0">Elige una opción</option>
                 <option value="1">Disponible</option>
                 <option value="1">No Disponible</option>
-                <option value="1">Oculto</option>
               </select>
             </div>
 
