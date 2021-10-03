@@ -105,9 +105,9 @@ function NewSales() {
             <div className="product-status">
               <select name="Estado">
                 <option selected value="0">Elige una opción</option>
-                <option value="1">Disponible</option>
-                <option value="1">No Disponible</option>
-                <option value="1">Oculto</option>
+                <option value="1">En Proceso</option>
+                <option value="1">Cancelada</option>
+                <option value="1">Entregada</option>
               </select>
             </div>
 
