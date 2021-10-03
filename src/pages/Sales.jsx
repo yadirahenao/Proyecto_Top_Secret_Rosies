@@ -58,7 +58,7 @@ function Sales() {
         </tr>
         </table>
 
-        <Link >
+        <Link to='/Sales' >
           <p className='L_Actualizar'>Actualizar</p>
         </Link>    
 

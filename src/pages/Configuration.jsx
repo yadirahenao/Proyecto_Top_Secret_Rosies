@@ -4,6 +4,7 @@ import Footer from 'components/Footer';
 
 function Configuration() {
   return (
+    <div className="mainContainer">
     <div className='users'>
       <h1 className="t_modulo">Gestión de usuarios</h1>       
       <div className="busqueda">      
@@ -58,12 +59,13 @@ function Configuration() {
             <td></td>
         </tr>
         </table>
-        <Link >
+        <Link to='/Configuration'>
           <p className='L_Actualizar'>Actualizar</p>
         </Link>
         
       </div>
       <Footer/>
+    </div>
     </div>
   );
 }

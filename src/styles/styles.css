@@ -49,7 +49,7 @@ body {
 .t_Inicio{
     color: white;
     font-family: 'Montserrat', arial;  
-    font-style: italic;
+    font-style: italic;    
     text-align: right;
     font-size: 50px;    
     margin-top: -80px;
@@ -73,6 +73,7 @@ body {
     margin-left: 20%;
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
 }
 
 .catalogo{              /*il*/
@@ -80,6 +81,7 @@ body {
     background-color:#6f2b25;
     box-shadow: 5px 10px 5px rgb(231, 231, 231);
     border-radius: 10px;
+    list-style: none;
 }
 
 .tituloImagen{
