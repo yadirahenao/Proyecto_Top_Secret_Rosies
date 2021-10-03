@@ -114,7 +114,10 @@ function NewSales() {
             <br></br>
             
             <div className="form-group">
-              <button type="submit">Guardar información</button>
+            <button type="submit" onClick={event => alert(event.target.id)}>
+            <p  id="Venta agregada Exitosamente">Guardar información</p>
+              </button>
+            
             </div> 
           
             <Link to='/Sales'>

@@ -11,8 +11,8 @@ function Configuration() {
         <select className="Opc_filtro">
           <option value="1">(Filtrar por)</option> 
             <option value="2">Id usuario</option> 
-            <option value="3">Nombre cliente</option> 
-            <option value="4">Apellido cliente</option>
+            <option value="3">Nombre</option> 
+            <option value="4">Apellido</option>
             <option value="5">Rol</option>
             <option value="6">Estado</option>
         </select>

@@ -46,8 +46,9 @@ function NewUser() {
             <div className="product-status">
               <select name="Estado">
                 <option selected value="0">Elige una opción</option>
-                <option value="1">Activo</option>
-                <option value="1">Inactivo</option>     
+                <option value="1">Pendiente</option>
+                <option value="1">Autorizado</option>
+                <option value="1">No autorizado</option>     
               </select>
             </div>
 
