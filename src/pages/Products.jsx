@@ -48,7 +48,7 @@ function Products() {
         <tr>
         </tr>
         </table>
-        <Link >
+        <Link to='/Products'>
           <p className='L_Actualizar'> Actualizar</p>
         </Link>
        

@@ -59,7 +59,7 @@ function Configuration() {
             <td></td>
         </tr>
         </table>
-        <Link >
+        <Link to='/Configuration'>
           <p className='L_Actualizar'>Actualizar</p>
         </Link>
         
