@@ -17,7 +17,7 @@ function NewProducts() {
           <h3>Ingrese los datos para crear un nuevo producto</h3>
         </div>
         <div className="form-content">
-          <form>
+          <form className='form-second'>
             <div className="form-group">
               <label for="ID">ID</label>
               <input type="text" id="ID" name="ID" required="required" />
