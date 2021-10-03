@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from 'components/Footer'
+import Footer from 'components/Footer';
 
 function NewSales() {
   return (
@@ -114,16 +114,8 @@ function NewSales() {
             <br></br>
             
             <div className="form-group">
-<<<<<<< HEAD
-              <button type="submit"onClick={event => alert(event.target.id)}>
-              <p  id="Venta Creada Exitosamente">Guardar información</p>
-              </button>
-            </div>
-=======
               <button type="submit">Guardar información</button>
             </div> 
->>>>>>> 1f7da4217f10fc09f65173c42aa1e4e843915f98
-
           
             <Link to='/Sales'>
               <p className='L_Regresar'>Regresar</p>

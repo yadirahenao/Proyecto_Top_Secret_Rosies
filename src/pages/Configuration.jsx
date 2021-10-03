@@ -4,7 +4,7 @@ import Footer from 'components/Footer';
 
 function Configuration() {
   return (
-    <div className="mainContainer">
+    <div >
     <div className='users'>
       <h1 className="t_modulo">Gestión de usuarios</h1>       
       <div className="busqueda">      

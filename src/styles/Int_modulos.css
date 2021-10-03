@@ -3,19 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); 
 
 
-.mainContainer {
-    height: 70vh;
-    overflow-x: hidden;
-}
-
-.mainContainer > main {
-    height: 100%;
-  }
-  
-  .mainContainer > footer {
-    padding: 10px;
-  }
-
 .t_modulo{
     color: white;
     font-family: 'Montserrat';   

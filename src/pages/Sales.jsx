@@ -4,7 +4,7 @@ import Footer from 'components/Footer';
 
 function Sales() {
   return (
-      <div className="mainContainer">
+      <div >
       <h2 className="t_modulo">Gestión de ventas</h2>
          
       <div className="busqueda">       

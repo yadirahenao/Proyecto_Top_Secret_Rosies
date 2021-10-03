@@ -5,9 +5,11 @@
 .navbar {
     background-color: #6f2b25;
     height: 150px;
+    width: 120%;
     display: flex;
     justify-content: start;
     align-items: center;
+    
   }
   
   .menu-bars {        /*barras menú*/
