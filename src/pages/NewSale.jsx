@@ -47,10 +47,10 @@ function NewSales() {
             </div>
 
             <br></br>
-
+            
             <div className="form-group">
               <button type="submit">Guardar información</button>
-            </div>
+            </div> 
 
             <Link to='/Sales'>
               <p className='L_Regresar'>Regresar</p>
