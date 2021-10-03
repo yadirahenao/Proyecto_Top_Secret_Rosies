@@ -4,6 +4,7 @@ import Footer from 'components/Footer';
 
 function Products() {
   return (
+    <div className="mainContainer">
     <div className='ventas'>
       <h2 className="t_modulo">Gestión de productos</h2>         
       <div className="busqueda">        
@@ -54,6 +55,7 @@ function Products() {
 
       </div>
       <Footer/>
+    </div>
     </div>
   );
 }
