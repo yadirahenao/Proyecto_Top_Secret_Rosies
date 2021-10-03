@@ -110,3 +110,19 @@ thead{
     text-decoration: none; 
 }
 
+.L_Editar{
+    margin-top: none;    
+    padding: 8px 15px;     
+    border: 0.5px solid; 
+    width: 130px;
+    height:35px ;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    text-align: center;
+    background-color: white;   
+    color: black;         
+    cursor: pointer;
+    text-decoration: none; 
+    border: 1px solid rgb(116, 111, 111);
+    
+}

@@ -32,6 +32,7 @@ function Sales() {
                 <th><strong>Cantidad</strong></th>
                 <th><strong>Vendedor</strong></th>
                 <th><strong>Valor Total</strong></th>
+                <td></td>
 
             </thead>
         <tr>
@@ -42,6 +43,10 @@ function Sales() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewSales'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
 
         <tr>
@@ -52,6 +57,10 @@ function Sales() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewSales'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
 
         <tr>

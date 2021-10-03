@@ -29,6 +29,7 @@ function Products() {
                 <th>Descripción</th>
                 <th>Valor unitario</th>
                 <th>Estado</th>
+                <td></td>
 
             </thead>
         <tr>
@@ -36,6 +37,10 @@ function Products() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewProducts'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
 
         <tr>
@@ -43,6 +48,10 @@ function Products() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewProducts'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
 
         <tr>

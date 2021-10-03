@@ -33,6 +33,7 @@ function Configuration() {
                 <th>Correo</th>
                 <th>Rol</th>
                 <th>Estado</th>
+                <td></td>
             </thead>
         <tr>
             <td></td>
@@ -41,6 +42,10 @@ function Configuration() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewUser'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+            
         </tr>
         <tr>
             <td></td>
@@ -49,6 +54,10 @@ function Configuration() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewUser'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
         <tr>
             <td></td>
@@ -57,12 +66,17 @@ function Configuration() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewUser'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
         </table>
         <Link to='/Configuration'>
           <p className='L_Actualizar'>Actualizar</p>
         </Link>
         
+
       </div>
       <Footer/>
     </div>
