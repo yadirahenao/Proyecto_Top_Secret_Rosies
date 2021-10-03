@@ -23,7 +23,7 @@ function Products() {
       </div>
 
       <div className="table_users">
-      <table>
+      <table id="productTable">
             <thead>
                 <th>ID producto</th>
                 <th>Descripción</th>
