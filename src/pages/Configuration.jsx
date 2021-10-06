@@ -14,8 +14,8 @@ function Configuration() {
         <select className="Opc_filtro">
           <option value="1">(Filtrar por)</option> 
             <option value="2">Id usuario</option> 
-            <option value="3">Nombre cliente</option> 
-            <option value="4">Apellido cliente</option>
+            <option value="3">Nombre</option> 
+            <option value="4">Apellido</option>
             <option value="5">Rol</option>
             <option value="6">Estado</option>
         </select>
@@ -36,6 +36,7 @@ function Configuration() {
                 <th>Correo</th>
                 <th>Rol</th>
                 <th>Estado</th>
+                <td></td>
             </thead>
         <tr>
             <td></td>
@@ -44,6 +45,10 @@ function Configuration() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewUser'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+            
         </tr>
         <tr>
             <td></td>
@@ -52,6 +57,10 @@ function Configuration() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewUser'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
         <tr>
             <td></td>
@@ -60,12 +69,17 @@ function Configuration() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewUser'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
         </table>
         <Link to='/Configuration'>
           <p className='L_Actualizar'>Actualizar</p>
         </Link>
         
+
       </div>
       <Footer/>
       </div>

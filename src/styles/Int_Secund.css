@@ -33,17 +33,6 @@
   transition: all 0.3s ease;
 }
 
-/* .form-toggle:before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.form-toggle:after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-.form-toggle.visible {
-  transform: translate(0, -25%) scale(1);
-  opacity: 1;
-} */
-
 .form-group {
   display: flex;
   flex-wrap: wrap;
@@ -78,7 +67,7 @@
   box-sizing: border-box;
   padding: 12px 20px;
   color: rgba(0, 0, 0, 0.6);
-  font-family: montserra;
+  font-family: 'Montserrat', arial;
   font-size: inherit;
   font-weight: 500;
   line-height: inherit;
@@ -107,16 +96,6 @@
   text-transform: none;
 }
 
-.form-group .form-remember input[type=checkbox] {
-  display: inline-block;
-  width: auto;
-  margin: 0 10px 0 0;
-}
-.form-group .form-recovery {
-  color: #4285F4;
-  font-size: 12px;
-  text-decoration: none;
-}
 .form-panel {
   padding: 60px calc(5% + 60px) 60px 60px;
   box-sizing: border-box;
@@ -170,8 +149,7 @@
  padding: 4px 0;
  color: #ca7062;
  font-size: 250%;
- font-weight: 700;    
- 
+ font-weight: 700;  
 }
 
 .form-header h2 { /*title create product - H1*/
@@ -179,7 +157,6 @@
   color: #ca7062;
   font-size: 250%;
   font-weight: 700;    
-  
  }
 
 .product-status{
@@ -191,13 +168,13 @@
   outline: none;
   display: block;
   background: rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 95%;
+  margin: 2%;
   border: 0;
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 12px 20px;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: inherit;
+  padding: 15px 20px;
+  color: rgba(0, 0, 0, 0.6);  
   font-size: inherit;
   font-weight: 500;
   line-height: inherit;

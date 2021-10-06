@@ -27,12 +27,13 @@ function Products() {
       </div>
 
       <div className="table_users">
-      <table>
+      <table id="productTable">
             <thead>
                 <th>ID producto</th>
                 <th>Descripción</th>
                 <th>Valor unitario</th>
                 <th>Estado</th>
+                <td></td>
 
             </thead>
         <tr>
@@ -40,6 +41,10 @@ function Products() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewProducts'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
 
         <tr>
@@ -47,6 +52,10 @@ function Products() {
             <td></td>
             <td></td>
             <td></td>
+            <Link to='/NewProducts'>
+          <p className='L_Editar'>Editar</p>
+        </Link>
+ 
         </tr>
 
         <tr>
