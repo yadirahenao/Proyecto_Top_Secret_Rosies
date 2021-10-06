@@ -4,9 +4,11 @@ import Footer from 'components/Footer';
 
 function Sales() {
   return (
-      <div className="mainContainer">
-      <h2 className="t_modulo">Gestión de ventas</h2>
-         
+  <div>
+    <div>
+        <h2 className="t_modulo">Gestión de ventas</h2>
+    </div>
+    <div className="mainContainer">        
       <div className="busqueda">       
         <select className="Opc_filtro">
           <option value="1">(Filtrar por)</option> 
@@ -30,8 +32,10 @@ function Sales() {
                 <th><strong>Documento de identidad</strong></th>
                 <th><strong>Producto</strong></th>
                 <th><strong>Cantidad</strong></th>
-                <th><strong>Vendedor</strong></th>
+                <th><strong>Precio</strong></th>
                 <th><strong>Valor Total</strong></th>
+                <th><strong>Vendedor</strong></th>
+                <th><strong>Estado de la Venta</strong></th>
 
             </thead>
         <tr>
@@ -42,9 +46,13 @@ function Sales() {
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
         </tr>
 
         <tr>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -64,6 +72,7 @@ function Sales() {
 
       </div>
       <Footer/>
+      </div>
     </div>
   );
 }

@@ -2,22 +2,6 @@
 
 /* Start form  attributes - PRODUCTS */
 
-.info {
-  margin-right: 230px;
-  margin-top: 30px;
-  width: 45%;
-  padding: 5px;
-  
-}
-
-.infoVenta {
-  margin-left: 270px;
-  margin-top: -308px;
-  width: 50%;
-  padding: 5px;
- 
-}
-
 .form {
   min-height: 500px;
   height: auto;    
