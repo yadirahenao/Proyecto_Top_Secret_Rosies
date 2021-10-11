@@ -137,35 +137,47 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
    
     const options = {
       method: 'PATCH',
-      url: 'http://localhost:5000/products/actualize',
+      url: `http://localhost:5000/products/${producto._id}/`,
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto },
     };
-    
-    
+
     await axios
-    .request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
-};
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        toast.success('Producto modificado con éxito');
+        setEdit(false);
+        setEjecutarConsulta(true);
+      })
+      .catch(function (error) {
+        toast.error('Error modificando el Producto');
+        console.error(error);
+      });
+  };
 
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'http://localhost:5000/products/delete',
+      url: 'http://localhost:5000/products/delete/',
       headers: { 'Content-Type': 'application/json' },
-      data: { id: '' },
+      data: { id: producto._id },
     };
-        
+
     await axios
-    .request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
-};
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        toast.success('Producto eliminado con éxito');
+        setEjecutarConsulta(true);
+      })
+      .catch(function (error) {
+        console.error(error);
+        toast.error('Error eliminando el Producto');
+      });
+    setOpenDialog(false);
+  };
+
 
    return (
     <tr>
@@ -283,18 +295,25 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'http://localhost:5000/products/new',
+      url: 'http://localhost:5000/products/new/',
       headers: { 'Content-Type': 'application/json' },
-      data: {},
+      data: { name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model },
     };
-    
+
     await axios
-    .request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        toast.success('Producto agregado con éxito');
+      })
+      .catch(function (error) {
+        console.error(error);
+        toast.error('Error creando un Producto');
+      });
+
+    setMostrarTabla(true);
   };
+  
   return (
     <div className='flex flex-col items-center justify-center'>
       <h2 className='text-2xl font-extrabold text-yellow-900'>Crear nuevo Producto</h2>
