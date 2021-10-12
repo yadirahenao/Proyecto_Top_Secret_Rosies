@@ -4,7 +4,7 @@ import Footer from 'components/Footer';
 
 function NewSales() {
   return (
-    <>
+    <div>
     <div>
       <h1 className='t_modulo'> Gestión de ventas</h1>
     </div>
@@ -19,28 +19,12 @@ function NewSales() {
         <div className="form-content">
           <br/>
          
-          <div>
-            <div className="info">
-          <div className="form-group">
-              <label for="Fecha">Fecha</label>
-              <input type="text" id="Fecha" name="Fecha" required="required" />
-          </div>
-          <br />
-
-            <div className="form-group">
+          <div>        
+             <div className="form-group">
               <label for="ID">ID Venta</label>
               <input type="text" id="ID" name="ID" required="required" />
             </div>
-            <br />
 
-            <div className="form-group">
-              <label for="Vendedor">Vendedor</label>
-              <input type="text" id="Vendedor" name="Vendedor" required="required" />
-            <br />
-            </div>
-            </div>
-
-            <div className="infoVenta">
             <div className="form-group">
               <label for="Cliente">Cliente</label>
               <input type="text" id="Cliente" name="Cliente" required="required" />
@@ -52,51 +36,29 @@ function NewSales() {
             </div>
 
             <div className="form-group">
-              <label for="Dirección">Dirección</label>
-              <input type="text" id="Dirección" name="Dirección" required="required" />
+              <label for="Producto">Producto</label>
+              <input type="text" id="Producto" name="Producto" required="required" />
             </div>
 
             <div className="form-group">
-              <label for="Correo">Correo</label>
-              <input type="text" id="Correo" name="Correo" required="required" />
-            </div>
+              <label for="Cantidad">Cantidad</label>
+              <input type="text" id="Cantidad" name="Cantidad" required="required" />
             </div>
 
-            <br />
-            <center>
-            <table  class="table" border="solid" cellPadding="10" cellSpacing="0">
-              <tr align="center">
-                <td><strong>Codigo</strong></td>
-                <td><strong>Producto</strong></td>
-                <td><strong>Cantidad</strong></td>
-                <td><strong>Precio</strong></td>
-                </tr>
-                <tr align="center">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  </tr>
-                  <tr align="center">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    </tr>
-                    
-                    <tr align="center">
-                      <td><strong>Valor Total</strong></td>
-                      <td colSpan="3"></td>
-                      </tr>
-            </table>
-            </center>
-            
-            <br />
             <div className="form-group">
-              <label for="Descrpcion">Descrpción</label>
-              <input type="Descrpcion" id="Descrpcion" name="Descrpcion" required="required" />
+              <label for="Precio">Precio</label>
+              <input type="text" id="Precio" name="Precio" required="required" />
             </div>
-            <br />
+
+            <div className="form-group">
+              <label for="Valor Total">Valor Total</label>
+              <input type="text" id="Valor Total" name="Valor Total" required="required" />
+            </div>
+
+            <div className="form-group">
+              <label for="Vendedor">Vendedor</label>
+              <input type="text" id="Vendedor" name="Vendedor" required="required" />
+            </div>
                   
             <div className="form-group">
               <label for="Estado">Estado de la Venta</label>
@@ -129,7 +91,7 @@ function NewSales() {
       </div>      
     </div>
     <Footer/>
-    </>
+    </div>
   );
 }
 

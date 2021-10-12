@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Footer from 'components/Footer';
+import axios from "axios";
+
+const options = {
+  method: 'POST',
+  url: 'http://localhost:5000/products/new',
+  headers: {'Content-Type': 'application/json'},
+  data: {descripcion: 'Jabón de Sábila', valorUnitario: 21900, Estado: 'Disponible'}
+};
 
 const NewProducts = () => {
   const [ID, setID] = useState('');
@@ -22,6 +30,12 @@ const NewProducts = () => {
     console.log ('Dato2', ID)
   };
 
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
+  
   return (
     <>
     <div>
