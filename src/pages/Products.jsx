@@ -1,6 +1,6 @@
 import { obtenerProductos } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer, toast} from 'react-toastify';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
