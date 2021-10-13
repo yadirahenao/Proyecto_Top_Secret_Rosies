@@ -1,7 +1,6 @@
-import { obtenerProductos } from 'utils/api';
+import { obtenerProductos, crearProducto, editarProducto, eliminarProducto } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
-import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 
@@ -15,12 +14,22 @@ const Products = () => {
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
-      obtenerProductos(setProductos, setEjecutarConsulta);
-    }
-  }, [ejecutarConsulta]);
+      obtenerProductos(
+        (response) => {
+        console.log('la respuesta que se recibio fue', response);
+        setProductos(response.data);
+        setEjecutarConsulta(false);
+      },
+      (error) => {
+        console.error('Salio un error:', error);
+      }
+    );
+    
+  }
+}, [ejecutarConsulta]);
 
   useEffect(() => {
-      if (mostrarTabla) {
+    if (mostrarTabla) {
       setEjecutarConsulta(true);
     }
   }, [mostrarTabla]);
@@ -30,15 +39,16 @@ const Products = () => {
       setTextoBoton('Crear Nuevo Producto');
       setColorBoton('indigo');
     } else {
-      setTextoBoton('Mostrar Todos los Productos');
+      setTextoBoton('Mostrar Todos los productos');
       setColorBoton('green');
     }
   }, [mostrarTabla]);
+
   return (
     <div className='flex h-full w-full flex-col items-center justify-start'>
     <div className='flex flex-col w-full'>
       <div>
-      <h2 className="t_modulo">Gestión de productos</h2> 
+      <h2 className="t_modulo">Gestión de Productos</h2> 
       </div >
       <button
           onClick={() => {
@@ -83,16 +93,16 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-yellow-900'
       />
-      <h2 className='text-2xl font-extrabold text-yellow-900'>Todos los productos</h2>
+      <h2 className='text-2xl font-extrabold text-yellow-900'>Listado de Productos</h2>
       <div className='hidden md:flex w-full'>
-        <table className='tabla'>
+        <table className='tabla w-full'>
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Descripcion</th>
-              <th>Valor Unitario</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th className='bg-yellow-700'>Id</th>
+              <th className='bg-yellow-700'>Descripcion</th>
+              <th className='bg-yellow-700'>Valor Unitario</th>
+              <th className='bg-yellow-700'>Estado</th>
+              <th className='bg-yellow-700'>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -123,7 +133,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
   );
 };
 
-const FilaProducto = ({ producto, setEjecutarConsulta }) => {
+const FilaProducto = ({ producto, setEjecutarConsulta}) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
@@ -135,48 +145,41 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
 
   const actualizarProducto = async () => {
    
-    const options = {
-      method: 'PATCH',
-      url: `http://localhost:5000/products/${producto._id}/`,
-      headers: { 'Content-Type': 'application/json' },
-      data: { ...infoNuevoProducto },
-    };
-
-    await axios
-      .request(options)
-      .then(function (response) {
+    await editarProducto(
+      producto._id,
+      {
+        description: infoNuevoProducto.description,
+        unitValue: infoNuevoProducto.unitValue,
+        state: infoNuevoProducto.state,
+      },
+      (response) => {
         console.log(response.data);
         toast.success('Producto modificado con éxito');
         setEdit(false);
         setEjecutarConsulta(true);
-      })
-      .catch(function (error) {
+      },
+      (error) => {
         toast.error('Error modificando el Producto');
         console.error(error);
-      });
-  };
+      }
+    );
+  }; 
 
-  const eliminarProducto = async () => {
-    const options = {
-      method: 'DELETE',
-      url: 'http://localhost:5000/products/delete/',
-      headers: { 'Content-Type': 'application/json' },
-      data: { id: producto._id },
-    };
-
-    await axios
-      .request(options)
-      .then(function (response) {
+  const deleteProduct = async () => {
+    await eliminarProducto(
+      producto._id,
+      (response) => {
         console.log(response.data);
         toast.success('Producto eliminado con éxito');
         setEjecutarConsulta(true);
-      })
-      .catch(function (error) {
+      },
+      (error) => {
         console.error(error);
         toast.error('Error eliminando el Producto');
-      });
+      }
+    );
     setOpenDialog(false);
-  };
+  }; 
 
 
    return (
@@ -195,7 +198,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           <td>
             <input
               className='bg-gray-50 border border-yellow-900 p-2 rounded-lg m-2'
-              type='text'
+              type='number'
               value={infoNuevoProducto.unitValue}
               onChange={(e) =>
                 setInfoNuevoProducto({ ...infoNuevoProducto, unitValue: e.target.value })
@@ -262,7 +265,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             </h1>
             <div className='flex w-full items-center justify-center my-4'>
               <button
-                onClick={() => eliminarProducto()}
+                onClick={() => deleteProduct()}
                 className='mx-2 px-4 py-2 bg-yellow-700 text-white hover:bg-yellow-900 rounded-md shadow-md'
               >
                 Sí
@@ -281,7 +284,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   );
 };
 
-const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProductos }) => {
+const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProductos }) => {
   const form = useRef(null);
 
   const submitForm = async (e) => {
@@ -293,24 +296,23 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
       nuevoProducto[key] = value;
     });
 
-    const options = {
-      method: 'POST',
-      url: 'http://localhost:5000/products/new/',
-      headers: { 'Content-Type': 'application/json' },
-      data: { name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model },
-    };
-
-    await axios
-      .request(options)
-      .then(function (response) {
+    await crearProducto(
+      {
+        description: nuevoProducto.description,
+        unitValue: nuevoProducto.unitValue,
+        state: nuevoProducto.state,
+      },
+      (response) => {
         console.log(response.data);
         toast.success('Producto agregado con éxito');
-      })
-      .catch(function (error) {
+        listaProductos(true)
+        setProductos(true)
+      },
+      (error) => {
         console.error(error);
         toast.error('Error creando un Producto');
-      });
-
+      }
+    );
     setMostrarTabla(true);
   };
   
@@ -333,7 +335,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
           <input
             description='unitValue'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
+            type='number'
             placeholder='29000'
             required
           />
