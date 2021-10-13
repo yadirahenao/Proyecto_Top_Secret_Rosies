@@ -4,9 +4,12 @@ import Footer from 'components/Footer';
 
 function Configuration() {
   return (
-    <div >
-    <div className='users'>
-      <h1 className="t_modulo">Gestión de usuarios</h1>       
+    <div>
+     <div className='users'>
+       <h1 className="t_modulo">Gestión de usuarios</h1>  
+     </div>
+        
+      <div className="mainContainer">  
       <div className="busqueda">      
         <select className="Opc_filtro">
           <option value="1">(Filtrar por)</option> 
@@ -79,8 +82,8 @@ function Configuration() {
 
       </div>
       <Footer/>
-    </div>
-    </div>
+      </div>
+   </div>
   );
 }
 

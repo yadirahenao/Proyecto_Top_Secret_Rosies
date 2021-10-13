@@ -4,9 +4,13 @@ import Footer from 'components/Footer';
 
 function Products() {
   return (
-    <div >
+    <div>
     <div className='ventas'>
-      <h2 className="t_modulo">Gestión de productos</h2>         
+      <div>
+      <h2 className="t_modulo">Gestión de productos</h2> 
+      </div>
+
+      <div className="mainContainer"> 
       <div className="busqueda">        
         <select className="Opc_filtro">
           <option value="1">(Filtrar por)</option> 
@@ -60,10 +64,10 @@ function Products() {
         <Link to='/Products'>
           <p className='L_Actualizar'> Actualizar</p>
         </Link>
-       
-
+  
       </div>
       <Footer/>
+      </div>
     </div>
     </div>
   );
