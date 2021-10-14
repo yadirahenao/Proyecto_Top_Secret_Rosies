@@ -37,10 +37,10 @@ const Products = () => {
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nuevo Producto');
-      setColorBoton('indigo');
+      setColorBoton('bg-red-400');
     } else {
       setTextoBoton('Mostrar Todos los productos');
-      setColorBoton('green');
+      setColorBoton('bg-red-900');
     }
   }, [mostrarTabla]);
 
@@ -54,7 +54,7 @@ const Products = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-5 rounded-full m-6 w-28 self-end`}
+          className={`text-white ${colorBoton} p-5 rounded-full m-6 w-28 self-end`}
         >
           {textoBoton}
         </button>
