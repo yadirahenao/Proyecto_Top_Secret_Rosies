@@ -324,7 +324,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
         <label className='flex flex-col' htmlFor='nombre'>
           Descripcion del Producto
           <input
-            description='description'
+            name='description'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
             placeholder='Jabón de Menta'
@@ -334,7 +334,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
         <label className='flex flex-col' htmlFor='marca'>
           Valor Unitario
           <input
-            description='unitValue'
+            name='unitValue'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='number'
             placeholder='29000'
@@ -345,7 +345,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
           Estado
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            description='state'
+            name='state'
             required
             defaultValue={0}
             >
