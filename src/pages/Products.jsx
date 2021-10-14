@@ -1,6 +1,7 @@
 import { obtenerProductos, crearProducto, editarProducto, eliminarProducto } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 
@@ -360,7 +361,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
           type='submit'
           className='col-span-2 bg-yellow-700 p-2 rounded-full shadow-md hover:bg-yellow-900 text-white'
         >
-          Guardar producto
+          Guardar Producto
         </button>
       </form>
     </div>

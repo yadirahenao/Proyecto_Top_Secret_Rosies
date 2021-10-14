@@ -59,3 +59,32 @@ export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta = () => {
       });
     setEjecutarConsulta(false);
   };
+
+  export const crearUsuario = async (data, successCallback, errorCallback) => {
+  const options = {
+    method: 'POST',
+    url: 'http://localhost:5000/configuration/',
+    headers: { 'Content-Type': 'application/json' },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const editarUsuario = async (id, data, successCallback, errorCallback) => {
+  const options = {
+    method: 'PATCH',
+    url: `http://localhost:5000/configuration/${id}/`,
+    headers: { 'Content-Type': 'application/json' },
+    data,
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const eliminarUsuario = async (id, successCallback, errorCallback) => {
+  const options = {
+    method: 'DELETE',
+    url: `http://localhost:5000/configuration/${id}/`,
+    headers: { 'Content-Type': 'application/json' },
+  };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
