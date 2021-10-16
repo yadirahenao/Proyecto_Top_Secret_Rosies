@@ -1,6 +1,7 @@
 import { obtenerProductos, crearProducto, editarProducto, eliminarProducto } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 
@@ -37,10 +38,10 @@ const Products = () => {
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nuevo Producto');
-      setColorBoton('indigo');
+      setColorBoton('bg-red-400');
     } else {
       setTextoBoton('Mostrar Todos los productos');
-      setColorBoton('green');
+      setColorBoton('bg-red-900');
     }
   }, [mostrarTabla]);
 
@@ -54,7 +55,7 @@ const Products = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-5 rounded-full m-6 w-28 self-end`}
+          className={`text-white ${colorBoton} p-5 rounded-full m-6 w-28 self-end`}
         >
           {textoBoton}
         </button>
@@ -305,8 +306,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
       (response) => {
         console.log(response.data);
         toast.success('Producto agregado con éxito');
-        listaProductos(true)
-        setProductos(true)
+        
       },
       (error) => {
         console.error(error);
@@ -323,7 +323,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
         <label className='flex flex-col' htmlFor='nombre'>
           Descripcion del Producto
           <input
-            description='description'
+            name='description'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
             placeholder='Jabón de Menta'
@@ -333,7 +333,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
         <label className='flex flex-col' htmlFor='marca'>
           Valor Unitario
           <input
-            description='unitValue'
+            name='unitValue'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='number'
             placeholder='29000'
@@ -344,7 +344,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
           Estado
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            description='state'
+            name='state'
             required
             defaultValue={0}
             >
@@ -360,7 +360,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
           type='submit'
           className='col-span-2 bg-yellow-700 p-2 rounded-full shadow-md hover:bg-yellow-900 text-white'
         >
-          Guardar producto
+          Guardar Producto
         </button>
       </form>
     </div>
