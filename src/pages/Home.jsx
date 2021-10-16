@@ -5,11 +5,12 @@ import Jabones_frutales_unsplash from '../media/Jabones_frutales_unsplash.jpg';
 import Jabón_almendras_unsplash from '../media/Jabón_almendras_unsplash.jpg';
 import Kit_especial_unsplash from '../media/Kit_especial_unsplash.jpg';
 import Jabones_naturales_unsplash from '../media/Jabones_naturales_unsplash.jpg';
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function Home() {
   return (
+    
     <div>
     <section >
       <h1 className='t_Inicio'>Top Secret Rosies</h1>
