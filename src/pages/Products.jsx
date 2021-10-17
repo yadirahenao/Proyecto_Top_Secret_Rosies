@@ -94,7 +94,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-yellow-900'
       />
-      <h2 className='text-2xl font-extrabold text-yellow-900'>Listado de Productos</h2>
+      <h2 className='text-2xl font-extrabold text-yellow-900 p-8'>Listado de Productos</h2>
       <div className='hidden md:flex w-full'>
         <table className='tabla w-full'>
           <thead>
