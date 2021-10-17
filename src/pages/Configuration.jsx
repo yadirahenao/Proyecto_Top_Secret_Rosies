@@ -371,8 +371,8 @@ const FormularioCreacionUsuarios = ({setMostrarTabla}) => {
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='email'>
-          email
+        <label className='flex flex-col' htmlFor='correo'>
+          Correo
           <input
             name='email'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
