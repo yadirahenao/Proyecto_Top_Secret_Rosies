@@ -306,7 +306,6 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
       (response) => {
         console.log(response.data);
         toast.success('Producto agregado con éxito');
-        
       },
       (error) => {
         console.error(error);

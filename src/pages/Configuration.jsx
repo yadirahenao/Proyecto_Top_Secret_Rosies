@@ -315,7 +315,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta}) => {
   );
 };
 
-const FormularioCreacionUsuarios = ({setMostrarTabla, listaUsuarios, setUsuarios }) => {
+const FormularioCreacionUsuarios = ({setMostrarTabla}) => {
   const form = useRef(null);
 
   const submitForm = async (e) => {
@@ -338,7 +338,6 @@ const FormularioCreacionUsuarios = ({setMostrarTabla, listaUsuarios, setUsuarios
       (response) => {
         console.log(response.data);
         toast.success('Usuario agregado con éxito');
-        
       },
       (error) => {
         console.error(error);
@@ -349,7 +348,7 @@ const FormularioCreacionUsuarios = ({setMostrarTabla, listaUsuarios, setUsuarios
   };
   
   return (
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center '>
       <h2 className='text-2xl font-extrabold text-yellow-900'>Crear nuevo Usuario</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
         <label className='flex flex-col' htmlFor='nombre'>
