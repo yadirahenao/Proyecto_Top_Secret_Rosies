@@ -91,6 +91,26 @@ const Ventas = () => {
     <div className='flex h-full w-full items-center justify-center'>
       <form ref={form} onSubmit={submitForm} className='flex flex-col h-full w-min'>
         <h1 className='flex flex-col text-3xl font-extrabold text-gray-900 my-3 '>Crear Nueva Venta</h1>
+        <label className='flex flex-col' htmlFor='nombre'>
+          Cliente
+          <input
+            name='client'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='Carla Azturias'
+            required
+          />
+        </label>
+        <label className='flex flex-col' htmlFor='marca'>
+          Identificación
+          <input
+            name='identification'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='number'
+            placeholder='123456789'
+            required
+          />
+          </label>
         <label className='flex flex-col' htmlFor='vendedor'>
           <span className='text-2xl font-gray-900'>Vendedor</span>
           <select name='vendedor' className='p-2' defaultValue='' required>
@@ -117,6 +137,22 @@ const Ventas = () => {
             name='valor'
             required
           />
+        </label>
+        <label className='flex flex-col' htmlFor='modelo'>
+          Estado de la Venta
+          <select
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            name='saleStatus'
+            required
+            defaultValue={0}
+            >
+            <option disabled value={0}>
+              Seleccione una opción
+            </option>
+            <option>En proceso</option>
+            <option>Entregada</option>  
+            <option>Cancelada</option>       
+            </select>
         </label>
         <button
           type='submit'
