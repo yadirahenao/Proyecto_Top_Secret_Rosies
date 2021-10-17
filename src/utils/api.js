@@ -34,23 +34,13 @@ export const eliminarProducto = async (id, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
+//Ventas
+
 export const obtenerVentas = async (successCallback, errorCallback) => {
   const options = { method: 'GET', url: 'http://localhost:5000/sales/' };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-//export const obtenerVentas = async (setVentas, setEjecutarConsulta = () => {}) => {
-//  const options = { method: 'GET', url: 'http://localhost:5000/sales/' };
-//  await axios
-//    .request(options)
-//    .then(function (response) {
-//      setVentas(response.data);
-//    })
-//    .catch(function (error) {
-//      console.error(error);
-//    });
-//  setEjecutarConsulta(false);
-//};
 
 export const crearVenta = async (data, successCallback, errorCallback) => {
   const options = {
@@ -81,20 +71,14 @@ export const eliminarVenta = async (id, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta = () => {}) => {
-    const options = { method: 'GET', url: 'http://localhost:5000/configuration/' };
-    await axios
-      .request(options)
-      .then(function (response) {
-        setUsuarios(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    setEjecutarConsulta(false);
-  };
+//usuarios
 
-  export const crearUsuario = async (data, successCallback, errorCallback) => {
+export const obtenerUsuarios = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/configuration/' };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const crearUsuario = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
     url: 'http://localhost:5000/configuration/',
@@ -103,6 +87,7 @@ export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta = () => {
   };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
+
 
 export const editarUsuario = async (id, data, successCallback, errorCallback) => {
   const options = {

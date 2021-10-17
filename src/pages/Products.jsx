@@ -9,7 +9,7 @@ const Products = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
-  const [colorBoton, setColorBoton] = useState('indigo');
+  const [colorBoton, setColorBoton] = useState('rosa');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
@@ -320,7 +320,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
     <div className='flex flex-col items-center justify-center'>
       <h2 className='text-2xl font-extrabold text-yellow-900'>Crear nuevo Producto</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
-        <label className='flex flex-col' htmlFor='nombre'>
+        <label className='flex flex-col' htmlFor='descripcion'>
           Descripcion del Producto
           <input
             name='description'
@@ -330,7 +330,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='marca'>
+        <label className='flex flex-col' htmlFor='valorUnitario'>
           Valor Unitario
           <input
             name='unitValue'
@@ -340,7 +340,7 @@ const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProduc
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='modelo'>
+        <label className='flex flex-col' htmlFor='estado'>
           Estado
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
