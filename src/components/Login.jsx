@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Logo from 'media/google_logo.png';
 import ImagenLogo from './ImagenLogo';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function Login() {
+  const { loginWithRedirect } = useAuth0();
   return (
-        
-    <div className="overlay">
+
+      <div className="overlay">
       <div className="logo-tsr">
         <ImagenLogo/>
       </div>
@@ -20,11 +22,11 @@ function Login() {
 
       <div className="field-set">              
       <img className = 'logo-google' src={Logo}></img>
+
           <br></br>
           <div className ="L_Ingresar">
-          <Link  to='/Home'>
-            <p>Iniciar sesion con google</p>
-          </Link>   
+            <button 
+              onClick={() => loginWithRedirect()}>Iniciar sesion</button>
           </div>              
       </div>
 

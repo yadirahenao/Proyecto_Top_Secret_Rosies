@@ -1,7 +1,11 @@
-import { obtenerProductos } from 'utils/api';
+import { obtenerProductos, crearProducto, editarProducto, eliminarProducto } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import 'react-toastify/dist/ReactToastify.css';
+>>>>>>> 5f2b17095f3a1958c669eceb3f16787444bbc600
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 
@@ -9,18 +13,28 @@ const Products = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
-  const [colorBoton, setColorBoton] = useState('indigo');
+  const [colorBoton, setColorBoton] = useState('rosa');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
-      obtenerProductos(setProductos, setEjecutarConsulta);
-    }
-  }, [ejecutarConsulta]);
+      obtenerProductos(
+        (response) => {
+        console.log('la respuesta que se recibio fue', response);
+        setProductos(response.data);
+        setEjecutarConsulta(false);
+      },
+      (error) => {
+        console.error('Salio un error:', error);
+      }
+    );
+    
+  }
+}, [ejecutarConsulta]);
 
   useEffect(() => {
-      if (mostrarTabla) {
+    if (mostrarTabla) {
       setEjecutarConsulta(true);
     }
   }, [mostrarTabla]);
@@ -28,23 +42,24 @@ const Products = () => {
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nuevo Producto');
-      setColorBoton('indigo');
+      setColorBoton('bg-red-400');
     } else {
-      setTextoBoton('Mostrar Todos los Productos');
-      setColorBoton('green');
+      setTextoBoton('Mostrar Todos los productos');
+      setColorBoton('bg-red-900');
     }
   }, [mostrarTabla]);
+
   return (
     <div className='flex h-full w-full flex-col items-center justify-start'>
     <div className='flex flex-col w-full'>
       <div>
-      <h2 className="t_modulo">Gestión de productos</h2> 
+      <h2 className="t_modulo">Gestión de Productos</h2> 
       </div >
       <button
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-5 rounded-full m-6 w-28 self-end`}
+          className={`text-white ${colorBoton} p-5 rounded-full m-6 w-28 self-end`}
         >
           {textoBoton}
         </button>
@@ -83,16 +98,16 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-yellow-900'
       />
-      <h2 className='text-2xl font-extrabold text-yellow-900'>Todos los productos</h2>
+      <h2 className='text-2xl font-extrabold text-yellow-900 p-8'>Listado de Productos</h2>
       <div className='hidden md:flex w-full'>
-        <table className='tabla'>
+        <table className='tabla w-full'>
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Descripcion</th>
-              <th>Valor Unitario</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th className='bg-yellow-700'>Id</th>
+              <th className='bg-yellow-700'>Descripcion</th>
+              <th className='bg-yellow-700'>Valor Unitario</th>
+              <th className='bg-yellow-700'>Estado</th>
+              <th className='bg-yellow-700'>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -123,7 +138,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
   );
 };
 
-const FilaProducto = ({ producto, setEjecutarConsulta }) => {
+const FilaProducto = ({ producto, setEjecutarConsulta}) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
@@ -135,48 +150,41 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
 
   const actualizarProducto = async () => {
    
-    const options = {
-      method: 'PATCH',
-      url: `http://localhost:5000/products/${producto._id}/`,
-      headers: { 'Content-Type': 'application/json' },
-      data: { ...infoNuevoProducto },
-    };
-
-    await axios
-      .request(options)
-      .then(function (response) {
+    await editarProducto(
+      producto._id,
+      {
+        description: infoNuevoProducto.description,
+        unitValue: infoNuevoProducto.unitValue,
+        state: infoNuevoProducto.state,
+      },
+      (response) => {
         console.log(response.data);
         toast.success('Producto modificado con éxito');
         setEdit(false);
         setEjecutarConsulta(true);
-      })
-      .catch(function (error) {
+      },
+      (error) => {
         toast.error('Error modificando el Producto');
         console.error(error);
-      });
-  };
+      }
+    );
+  }; 
 
-  const eliminarProducto = async () => {
-    const options = {
-      method: 'DELETE',
-      url: 'http://localhost:5000/products/delete/',
-      headers: { 'Content-Type': 'application/json' },
-      data: { id: producto._id },
-    };
-
-    await axios
-      .request(options)
-      .then(function (response) {
+  const deleteProduct = async () => {
+    await eliminarProducto(
+      producto._id,
+      (response) => {
         console.log(response.data);
         toast.success('Producto eliminado con éxito');
         setEjecutarConsulta(true);
-      })
-      .catch(function (error) {
+      },
+      (error) => {
         console.error(error);
         toast.error('Error eliminando el Producto');
-      });
+      }
+    );
     setOpenDialog(false);
-  };
+  }; 
 
 
    return (
@@ -195,7 +203,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           <td>
             <input
               className='bg-gray-50 border border-yellow-900 p-2 rounded-lg m-2'
-              type='text'
+              type='number'
               value={infoNuevoProducto.unitValue}
               onChange={(e) =>
                 setInfoNuevoProducto({ ...infoNuevoProducto, unitValue: e.target.value })
@@ -262,7 +270,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             </h1>
             <div className='flex w-full items-center justify-center my-4'>
               <button
-                onClick={() => eliminarProducto()}
+                onClick={() => deleteProduct()}
                 className='mx-2 px-4 py-2 bg-yellow-700 text-white hover:bg-yellow-900 rounded-md shadow-md'
               >
                 Sí
@@ -281,7 +289,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   );
 };
 
-const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProductos }) => {
+const FormularioCreacionProductos = ({setMostrarTabla, listaProductos, setProductos }) => {
   const form = useRef(null);
 
   const submitForm = async (e) => {
@@ -293,24 +301,21 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
       nuevoProducto[key] = value;
     });
 
-    const options = {
-      method: 'POST',
-      url: 'http://localhost:5000/products/new/',
-      headers: { 'Content-Type': 'application/json' },
-      data: { name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model },
-    };
-
-    await axios
-      .request(options)
-      .then(function (response) {
+    await crearProducto(
+      {
+        description: nuevoProducto.description,
+        unitValue: nuevoProducto.unitValue,
+        state: nuevoProducto.state,
+      },
+      (response) => {
         console.log(response.data);
         toast.success('Producto agregado con éxito');
-      })
-      .catch(function (error) {
+      },
+      (error) => {
         console.error(error);
         toast.error('Error creando un Producto');
-      });
-
+      }
+    );
     setMostrarTabla(true);
   };
   
@@ -318,31 +323,31 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
     <div className='flex flex-col items-center justify-center'>
       <h2 className='text-2xl font-extrabold text-yellow-900'>Crear nuevo Producto</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
-        <label className='flex flex-col' htmlFor='nombre'>
+        <label className='flex flex-col' htmlFor='descripcion'>
           Descripcion del Producto
           <input
-            description='description'
+            name='description'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
             placeholder='Jabón de Menta'
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='marca'>
+        <label className='flex flex-col' htmlFor='valorUnitario'>
           Valor Unitario
           <input
-            description='unitValue'
+            name='unitValue'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
+            type='number'
             placeholder='29000'
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='modelo'>
+        <label className='flex flex-col' htmlFor='estado'>
           Estado
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            description='state'
+            name='state'
             required
             defaultValue={0}
             >
@@ -358,7 +363,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
           type='submit'
           className='col-span-2 bg-yellow-700 p-2 rounded-full shadow-md hover:bg-yellow-900 text-white'
         >
-          Guardar producto
+          Guardar Producto
         </button>
       </form>
     </div>

@@ -17,9 +17,15 @@ import NewProducts from 'pages/NewProducts';
 import Products from 'pages/Products';
 import Configuration from 'pages/Configuration';
 import NewUser from 'pages/NewUser';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 function App() {
   return (
+    <Auth0Provider
+      domain="misiontic-tsr.us.auth0.com"
+      clientId="sZdjwhCVXbbhTzZKaqN80mqBDvejHTyr"
+      redirectUri="http://localhost:3000/home"
+    >
     <div className='App'>
       <Router>
         <Switch>
@@ -34,7 +40,8 @@ function App() {
           <Route path='/'> <Index /> </Route>     
         </Switch>        
       </Router>
-    </div>    
+    </div> 
+    </Auth0Provider>   
   );
 }
 
