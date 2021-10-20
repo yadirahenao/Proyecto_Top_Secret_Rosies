@@ -14,7 +14,6 @@ const Ventas = () => {
     const fetchVendores = async () => {
       await obtenerUsuarios(
         (response) => {
-          console.log('respuesta de usuarios', response);
           setVendedores(response.data);
         },
         (error) => {
@@ -35,7 +34,7 @@ const Ventas = () => {
 
     fetchVendores();
     fetchProductos();
-  }, []);
+    }, []);
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -50,32 +49,19 @@ const Ventas = () => {
 
     const listaProductos = Object.keys(formData)
       .map((k) => {
-        if (k.includes('Producto')) {
+        if (k.includes('producto')) {
           return productosTabla.filter((v) => v._id === formData[k])[0];
         }
         return null;
       })
       .filter((v) => v);
 
-    console.log('lista antes de cantidad', listaProductos);
-
-    Object.keys(formData).forEach((k) => {
-      if (k.includes('quantity')) {
-        const indice = parseInt(k.split('_')[1]);
-        listaProductos[indice]['quantity'] = formData[k];
-      }
-    });
-
-    console.log('lista despues de cantidad', listaProductos);
-
     const datosProducto = {
       vendedor: vendedores.filter((v) => v._id === formData.vendedor)[0],
-      cantidad: formData.valor,
-      Productos: listaProductos,
+      quantity: formData.unitValue,
+      productos: listaProductos,
     };
-
-    console.log('lista Productos', listaProductos);
-
+    
     await crearProducto(
       datosProducto,
       (response) => {
@@ -138,7 +124,7 @@ const Ventas = () => {
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='modelo'>
+        <label className='flex flex-col' htmlFor='estado'>
           Estado de la Venta
           <select
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
@@ -168,13 +154,8 @@ const Ventas = () => {
 const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   const [productoAAgregar, setProductoAAgregar] = useState({});
   const [filasTabla, setFilasTabla] = useState([]);
-
+ 
   useEffect(() => {
-    console.log(productoAAgregar);
-  }, [productoAAgregar]);
-
-  useEffect(() => {
-    console.log('filasTabla', filasTabla);
     setProductosTabla(filasTabla);
   }, [filasTabla, setProductosTabla]);
 
@@ -187,6 +168,18 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   const eliminarProducto = (productoAEliminar) => {
     setFilasTabla(filasTabla.filter((v) => v._id !== productoAEliminar._id));
     setProductos([...productos, productoAEliminar]);
+  };
+
+  const modificarProducto = (producto, quantity) => {
+    setFilasTabla(
+      filasTabla.map((ft) => {
+        if (ft._id === producto.id) {
+          ft.quantity = quantity;
+          ft.total = producto.unitValue * quantity;
+        }
+        return ft;
+      })
+    );
   };
 
   return (
@@ -221,14 +214,15 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
           Agregar Producto
         </button>
       </div>
-      <table className='tabla'>
+      <table className='tabla w-min'>
         <thead>
           <tr>
             <th>Id</th>
             <th>Descripcion</th>
-            <th>Valor Unitario</th>
             <th>Estado</th>
             <th>Cantidad</th>
+            <th>Valor Unitario</th>
+            <th>Total</th>
             <th>Eliminar</th>
             <th className='hidden'>Input</th>
           </tr>
@@ -236,30 +230,62 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
         <tbody>
           {filasTabla.map((el, index) => {
             return (
-              <tr key={nanoid()}>
-                <td>{el._id}</td>
-                <td>{el.description}</td>
-                <td>{el.unitValue}</td>
-                <td>{el.state}</td>
-                <td>
-                  <label htmlFor={`valor_${index}`}>
-                    <input type='number' name={`cantidad_${index}`} />
-                  </label>
-                </td>
-                <td>
-                  <i
-                    onClick={() => eliminarProducto(el)}
-                    className='fas fa-minus text-red-900 cursor-pointer'
-                  />
-                </td>
-                <input hidden defaultValue={el._id} name={`producto_${index}`} />
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+            <FilaProducto
+              key={el._id}
+              pro={el}
+              index={index}
+              eliminarProducto={eliminarProducto}
+              modificarProducto={modificarProducto}
+            />
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+);
 };
 
+const FilaProducto = ({ pro, index, eliminarProducto, modificarProducto }) => {
+const [producto, setProducto] = useState(pro);
+useEffect(() => {
+  console.log('pro', producto);
+}, [producto]);
+return (
+  <tr>
+    <td>{producto._id}</td>
+    <td>{producto.description}</td>
+    <td>{producto.state}</td>
+    <td>
+      <label htmlFor={`quantity_${index}`}>
+        <input
+          type='number'
+          name={`quantity_${index}`}
+          value={producto.quantity}
+          onChange={(e) => {
+            modificarProducto(producto, e.target.value === '' ? '0' : e.target.value);
+            setProducto({
+              ...producto,
+              quantity: e.target.value === '' ? '0' : e.target.value,
+              total:
+                parseFloat(producto.unitValue) *
+                parseFloat(e.target.value === '' ? '0' : e.target.value),
+            });
+          }}
+        />
+      </label>
+    </td>
+    <td>{producto.unitValue}</td>
+    <td>{parseFloat(producto.total ?? 0)}</td>
+    <td>
+      <i
+        onClick={() => eliminarProducto(producto)}
+        className='fas fa-minus text-red-900 cursor-pointer'
+      />
+    </td>
+    <td className='hidden'>
+      <input hidden defaultValue={producto._id} name={`producto_${index}`} />
+    </td>
+  </tr>
+);
+};
 export default Ventas;

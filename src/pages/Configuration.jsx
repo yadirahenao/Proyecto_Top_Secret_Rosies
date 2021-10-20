@@ -25,7 +25,6 @@ const Users = () => {
         console.error('Salio un error:', error);
       }
     );
-    
   }
 }, [ejecutarConsulta]);
 
@@ -40,7 +39,7 @@ const Users = () => {
       setTextoBoton('Crear Nuevo Usuario');
       setColorBoton('bg-red-400');
     } else {
-      setTextoBoton('Mostrar Todos los Usuarios');
+      setTextoBoton('Mostrar Todos los usuarios');
       setColorBoton('bg-red-900');
     }
   }, [mostrarTabla]);
@@ -315,7 +314,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta}) => {
   );
 };
 
-const FormularioCreacionUsuarios = ({setMostrarTabla}) => {
+const FormularioCreacionUsuarios = ({setMostrarTabla, listaUsuarios, setUsuarios}) => {
   const form = useRef(null);
 
   const submitForm = async (e) => {
@@ -345,11 +344,13 @@ const FormularioCreacionUsuarios = ({setMostrarTabla}) => {
       }
     );
     setMostrarTabla(true);
+    listaUsuarios(true);
+    setUsuarios(true);
   };
   
   return (
     <div className='flex flex-col items-center justify-center '>
-      <h2 className='text-2xl font-extrabold text-yellow-900'>Crear nuevo Usuario</h2>
+      <h2 className='text-2xl font-extrabold text-yellow-900'>Crear Nuevo Usuario</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
         <label className='flex flex-col' htmlFor='nombre'>
           Nombre del Usuario
