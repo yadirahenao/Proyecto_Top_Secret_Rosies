@@ -1,11 +1,7 @@
 import { obtenerProductos, crearProducto, editarProducto, eliminarProducto } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
-<<<<<<< HEAD
-import axios from 'axios';
-=======
 import 'react-toastify/dist/ReactToastify.css';
->>>>>>> 5f2b17095f3a1958c669eceb3f16787444bbc600
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 
