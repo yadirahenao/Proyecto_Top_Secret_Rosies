@@ -1,6 +1,7 @@
 import { obtenerVentas, crearVenta, editarVenta, eliminarVenta } from 'utils/api';
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 
@@ -8,7 +9,7 @@ const Sales = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [venta, setVentas] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nueva Venta');
-  const [colorBoton, setColorBoton] = useState('indigo');
+  const [colorBoton, setColorBoton] = useState('rosa');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
@@ -37,10 +38,10 @@ const Sales = () => {
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nueva Venta');
-      setColorBoton('indigo');
+      setColorBoton('bg-red-400');
     } else {
       setTextoBoton('Mostrar Todas las ventas');
-      setColorBoton('green');
+      setColorBoton('bg-red-900');
     }
   }, [mostrarTabla]);
 
@@ -54,7 +55,7 @@ const Sales = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-5 rounded-full m-6 w-28 self-end`}
+          className={`text-white ${colorBoton} p-5 rounded-full m-6 w-28 self-end`}
         >
           {textoBoton}
         </button>
@@ -93,7 +94,7 @@ const TablaVentas = ({ listaVentas, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-yellow-900'
       />
-      <h2 className='text-2xl font-extrabold text-yellow-900'>Listado de Ventas</h2>
+      <h2 className='text-2xl font-extrabold text-yellow-900 p-8'>Listado de Ventas</h2>
       <div className='hidden md:flex w-full'>
         <table className='tabla w-full'>
           <thead>
@@ -386,8 +387,6 @@ const FormularioCreacionVentas = ({setMostrarTabla, listaVentas, setVentas }) =>
       (response) => {
         console.log(response.data);
         toast.success('Venta agregada con éxito');
-        listaVentas(true)
-        setVentas(true)
       },
       (error) => {
         console.error(error);
